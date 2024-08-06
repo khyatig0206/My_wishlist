@@ -1,0 +1,267 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+body {
+  background-color:#FF8C42;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centers items vertically */
+  width: 100%; /* Full width of the parent container */
+  height: auto; /* Adjust height as needed */
+  padding-top:40px ;
+  margin-top: 40px;
+  gap: 40px;
+
+}
+
+.content {
+  width: 100%; /* Adjust the width of the content section */
+  margin-bottom: 40px;
+}
+.image-container-flipped {
+  width: 20%; /* Adjust the width of the image section */
+  display: flex;
+  left: 8%; /* Aligns the container to the right side */
+  
+  justify-content: center; /* Center the image horizontally */
+  position: fixed;
+  
+}
+
+.image-container-flipped img {
+  max-width: 100%; /* Ensures the image fits within its container */
+  height: auto; /* Maintains the aspect ratio */
+  transform: scaleX(-1); /* Flips the image horizontally */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.image-container {
+  width: 20%; /* Adjust the width of the image section */
+  display: flex;
+  right: 8%; /* Aligns the container to the right side */
+  
+  justify-content: center; /* Center the image horizontally */
+  position: fixed;
+  
+}
+
+.image-container img {
+  max-width: 100%; /* Ensures the image fits within its container */
+  height: auto; /* Maintains the aspect ratio */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+@media (max-width: 1020px) {
+  .image-container ,
+  .image-container-flipped {
+    display: none; /* Hides the image container on small screens */
+  }
+}
+.todo-search {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4)
+}
+
+.todo-search small {
+  align-self: flex-start;
+  color: red;
+}
+
+.todo-search form {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:6px
+}
+
+.todo-list {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4)
+}
+
+.todo-search form input,
+.todo-search form select {
+  border: 1px solid silver;
+  height: 50px;
+  padding: 10px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+select {
+  width: 100%;
+  margin: 20px 0;
+  height: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4)
+}
+
+
+input:focus, select:focus {
+  outline: 1px solid #FF8C42;
+}
+
+.todo-search form button {
+  height: 50px;
+  width: 70px;
+  padding: 0 10px;
+  background-color: #FF3C38;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo-list-item {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid silver;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-list-item .btn-container {
+  display: flex;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+.todo-list-item .edit {
+  margin-right: 10px;
+}
+
+.todo-list-item .edit,
+.todo-list-item .del {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #FF3C38;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-list .task {
+  display: flex;
+}
+
+.todo-list .task input {
+  margin-right: 10px;
+  width: 20px;
+}
+
+/* modal style */
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  width: 400px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 40px;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+}
+
+.modal form {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.modal form button {
+  height: 40px;
+  padding: 10px;
+  border: none;
+  background-color: #FF3C38;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal input {
+  width: 250px;
+  height: 40px;
+  border: 1px solid silver;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.modal .btn-container {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.mod-btn {
+  border: none;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.showbtn {
+  background: #FF3C38;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+.btn-container .cancel {
+  background: #FF3C38;
+  margin-right: 10px;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
