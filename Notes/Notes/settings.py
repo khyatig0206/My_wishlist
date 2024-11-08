@@ -128,6 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://stellular-pudding-ad54b6.netlify.app",
+    "https://my-wishlist-rose.vercel.app",
     
 ]
