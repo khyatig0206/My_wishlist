@@ -12,7 +12,7 @@ function App() {
 
 
   useEffect(()=>{
-    axios.get("https://khyatiram.pythonanywhere.com/notes")
+    axios.get("https://my-wishlist-be.onrender.com/notes")
     .then(res => {setNotes(res.data); setFilteredNotes(res.data);})
     .catch(err =>setErrors(err.message))
   },[])
@@ -22,7 +22,7 @@ function App() {
     setNotes(notes.filter(note => note.id !== id ));
     setFilteredNotes(filteredNotes.filter(note => note.id !== id));
 
-    axios.delete("https://khyatiram.pythonanywhere.com/notes/"+id)
+    axios.delete("https://my-wishlist-be.onrender.com/notes/"+id)
     .catch(err=>{
     setErrors(err.message);
     setNotes(originalNotes);
@@ -35,7 +35,7 @@ function App() {
     setNotes([...notes, newNote]);
     setFilteredNotes([...notes, newNote]);
 
-    axios.post("https://khyatiram.pythonanywhere.com/notes/", newNote)
+    axios.post("https://my-wishlist-be.onrender.com/notes/", newNote)
     .then(res=> setNotes([...notes,res.data]))
     .catch(err=>{
       setErrors(err.message)
@@ -50,7 +50,7 @@ function App() {
     setNotes(notes.map(n => n.id==id ? updatednote:n ))
     setFilteredNotes(notes.map(n => n.id === id ? updatednote : n));
 
-    axios.patch("https://khyatiram.pythonanywhere.com/notes/"+id,updatednote)
+    axios.patch("https://my-wishlist-be.onrender.com/notes/"+id,updatednote)
     .catch(err => setErrors(err.message));
   }
 
@@ -60,7 +60,7 @@ function App() {
     setNotes(notes.map(n => n.id === id ? updatednote : n));
     setFilteredNotes(notes.map(n => n.id === id ? updatednote : n)); // Update filtered notes
 
-    axios.patch("https://khyatiram.pythonanywhere.com/notes/" + id, updatednote)
+    axios.patch("https://my-wishlist-be.onrender.com/notes/" + id, updatednote)
     .catch(err => setErrors(err.message));
     
   }
